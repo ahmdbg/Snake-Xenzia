@@ -6,12 +6,12 @@ const levelSelect = document.getElementById('levelSelect');
 // Level configurations
 const levelSettings = {
     easy: {
-        speed: 8,
+        speed: 4,
         scoreMultiplier: 1,
         color: '#2ecc71'
     },
     medium: {
-        speed: 12,
+        speed: 8,
         scoreMultiplier: 1.5,
         color: '#3498db'
     },
@@ -21,7 +21,7 @@ const levelSettings = {
         color: '#e67e22'
     },
     expert: {
-        speed: 20,
+        speed: 32,
         scoreMultiplier: 2.5,
         color: '#e74c3c'
     }
