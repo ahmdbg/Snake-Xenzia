@@ -11,7 +11,7 @@ body {
     height: 100vh;
     margin: 0;
     background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
-    font-family: 'Arial', sans-serif;
+    font-family: 'poppins', sans-serif;
 }
 
 .game-container {
@@ -93,4 +93,35 @@ button:hover {
 
 #levelSelect:hover {
     border-color: #27ae60;
+}
+
+.mobile-controls {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.mobile-controls button {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    font-size: 24px;
+    border-radius: 50%;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.middle-row {
+    display: flex;
+    gap: 40px;
+}
+
+/* Show mobile controls only on small screens */
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: flex;
+    }
 }

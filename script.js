@@ -9,6 +9,12 @@ const gameOverSound = document.getElementById('gameOverSound');
 eatSound.volume = 0.5;  // Set volume to 50%
 gameOverSound.volume = 0.7;  // Set volume to 70%
 
+// Add this near the beginning of your script file
+const upButton = document.getElementById('upButton');
+const downButton = document.getElementById('downButton');
+const leftButton = document.getElementById('leftButton');
+const rightButton = document.getElementById('rightButton');
+
 // Level configurations
 const levelSettings = {
     easy: {
@@ -78,6 +84,38 @@ document.addEventListener('keydown', (e) => {
             if (dx !== -1) { dx = 1; dy = 0; }
             break;
     }
+});
+
+// Add these event listeners after your existing code
+upButton.addEventListener('click', () => {
+    if (direction !== 'down') {
+        direction = 'up';
+    }
+});
+
+downButton.addEventListener('click', () => {
+    if (direction !== 'up') {
+        direction = 'down';
+    }
+});
+
+leftButton.addEventListener('click', () => {
+    if (direction !== 'right') {
+        direction = 'left';
+    }
+});
+
+rightButton.addEventListener('click', () => {
+    if (direction !== 'left') {
+        direction = 'right';
+    }
+});
+
+// Prevent scrolling when touching the buttons on mobile
+document.querySelectorAll('.mobile-controls button').forEach(button => {
+    button.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+    });
 });
 
 function startGame() {
