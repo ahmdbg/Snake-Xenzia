@@ -2,6 +2,12 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const startButton = document.getElementById('startButton');
 const levelSelect = document.getElementById('levelSelect');
+const eatSound = document.getElementById('eatSound');
+const gameOverSound = document.getElementById('gameOverSound');
+
+// Add after audio constants
+eatSound.volume = 0.5;  // Set volume to 50%
+gameOverSound.volume = 0.7;  // Set volume to 70%
 
 // Level configurations
 const levelSettings = {
@@ -134,6 +140,7 @@ function drawGame() {
         // Check food collision
         if (newHead.x === food.x && newHead.y === food.y) {
             score += 10 * scoreMultiplier;
+            eatSound.play();  // Play eating sound
             generateFood();
         } else {
             snake.pop();
@@ -225,6 +232,7 @@ function generateFood() {
 function gameOver() {
     isGameRunning = false;
     clearInterval(gameLoop);
+    gameOverSound.play();  // Play game over sound
 
     // Add game over overlay
     ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
